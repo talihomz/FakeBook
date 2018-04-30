@@ -55,6 +55,22 @@ You can deploy the project on [Heroku](https://www.heroku.com/) using the follow
 4. Run `heroku migrate` to run migrations on your production database.
 5. Visit your project URL as assigned by Heroku to see a live deployment of Fakebook.
 
+### Docker
+
+Build the project
+
+`$ docker-compose build`
+
+Create the database:
+`$ docker-compose run --rm web bin/rails db:create`
+
+Run the migrations:
+`$ docker-compose run --rm web bin/rails db:migrate`
+
+Run the app:
+`$ docker-compose up -d`
+
+
 ## Authors
 
 * **Kevin Wahome** - [talihomz](https://github.com/talihomz)
