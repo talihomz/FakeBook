@@ -8,11 +8,11 @@ default: &default
   username: postgres
 
 development:
- <<: *default
- database: fakebook_development
+  <<: *default
+  database: fakebook_development
 
 production:
- <<: *default
- database: fakebook_production
- username: fakebook
- password: <%= ENV['FAKEBOOK_DATABASE_PASSWORD'] %>
+  <<: *default
+  database: fakebook_production
+  username: fakebook
+  password: <%= ENV['FAKEBOOK_DATABASE_PASSWORD'] %>

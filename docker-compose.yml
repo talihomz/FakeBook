@@ -4,7 +4,7 @@ services:
     image: postgres:10.1-alpine
   web:
     build: .
-    command: bin/rails s -p 3000 -b '0.0.0.0'
+    command: sh bin/start.sh
     volumes:
       - .:/usr/src/app
     ports:

@@ -18,5 +18,6 @@ ADD Gemfile.lock $APP_PATH
 RUN bundle install --jobs `expr $(cat /proc/cpuinfo | grep -c "cpu cores") - 1` --retry 3
 
 # Copy the application into the container
-COPY . APP_PATH
+COPY . $APP_PATH
+
 EXPOSE 3000
