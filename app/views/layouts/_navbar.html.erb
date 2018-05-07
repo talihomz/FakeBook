@@ -1,0 +1,44 @@
+<nav>
+ <div class="container">
+   <%= link_to "Fakebook", root_path, id: "logo" %>
+   <ul class="nav navbar-nav navbar-right">
+     <li><%= link_to "Home", root_path %></li>
+     <% if user_signed_in? %>
+       <div class="navbar-right">
+         <div class="navbar-right-links">
+           <a href="#">Find Friends</a>
+           <i class="material-icons">notifications</i>
+           <img class="avatar" src="images/ic_account_box_black_24dp_2x.png" alt="avatar">
+           <div class="nav-item dropdown">
+            <i class="material-icons" id="dropdown-toggle">keyboard_arrow_down</i>
+            <div id="dropdown-content" class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Logout</a>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+            </div>
+          </div>
+         </div>
+       </div>
+     <% else %>
+       <div class="navbar-right">
+         <form class="form-inline">
+           <div class="form-group">
+             <label for="email">Email</label>
+             <input class="form-control" type="email" name="email" id="email" required>
+           </div>
+           <div class="form-group">
+             <label for="password">Password</label>
+             <input class="form-control" type="password" name="password" id="password" required>
+           </div>
+           <button type="submit" class="btn btn-primary mb-2">Log In</button>
+           <br>
+           <div class="checkbox">
+             <label><input type="checkbox" value="remember">Remember Me</label>
+           </div>
+         </form>
+       </div>
+     <% end %>
+   </ul>
+ </div>
+</nav>
