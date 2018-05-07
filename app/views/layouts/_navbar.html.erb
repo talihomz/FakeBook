@@ -1,8 +1,12 @@
 <nav>
  <div class="container">
-   <%= link_to "Fakebook", root_path, id: "logo" %>
+   <% if user_signed_in? %>
+    <%= link_to "Fakebook", authenticated_root_path, id: "logo" %>
+   <% else %>
+    <%= link_to "Fakebook", unauthenticated_root_path, id: "logo" %>
+   <% end %>
+
    <ul class="nav navbar-nav navbar-right">
-     <li><%= link_to "Home", root_path %></li>
      <% if user_signed_in? %>
        <div class="navbar-right">
          <div class="navbar-right-links">
