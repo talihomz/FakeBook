@@ -26,17 +26,16 @@
        </div>
      <% else %>
        <div class="navbar-right">
-         <%= form_for(resource, as: resource_name, class: "form-inline", url: session_path(resource_name)) do |f| %>
+         <%= form_for(resource, as: resource_name, html: { class: "form-inline" }, url: session_path(resource_name)) do |f| %>
            <div class="form-group">
              <%= f.label :email %>
-               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
+             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
            </div>
            <div class="form-group">
              <%= f.label :password %>
              <%= f.password_field :password, autocomplete: "off", class: 'form-control', required: true %>
            </div>
-           <!-- <button type="submit" class="btn btn-primary mb-2">Log In</button> -->
-           <%= f.submit "Log in" %>
+           <button type="submit" class="btn btn-primary mb-2">Log In</button>
            <br>
            <% if devise_mapping.rememberable? -%>
              <div class="checkbox">
