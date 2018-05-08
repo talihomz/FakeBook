@@ -1,12 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-$facebook-blue: #3b5998;
-$white: #fff;
-$whitesmoke : #e9ebee;
-$lightgrey: #555;
-
-// Navbar
 nav {
   background: $facebook-blue;
 
@@ -21,10 +12,6 @@ nav {
   .logo-authenticated {
     margin: 0!important;
     font-size: 36px!important;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   .navbar-right {
@@ -78,44 +65,5 @@ nav {
         }
       }
     }
-  }
-}
-
-// Welcome
-.register-container {
-  .col-md-7 {
-    img {
-      margin-top: 16px;
-    }
-  }
-
-  .col-md-5 {
-    form {
-      .col-md-6 {
-        padding: 0;
-      }
-
-      .col-md-6.left {
-        padding-right: 10px;
-      }
-      .col-md-6.right {
-        padding-left: 10px;
-      }
-
-      .radio-inline {
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      #birthday {
-        margin-top: 16px;
-      }
-
-      .btn-lg {
-        padding-left: 48px;
-        padding-right: 48px;
-      }
-    }
-
   }
 }

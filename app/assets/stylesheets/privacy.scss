@@ -1,0 +1,17 @@
+.privacy-container {
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+
+  img {
+    border-radius: 6px;
+    width: auto;
+    height: 600px;
+  }
+
+  p {
+    font-size: 48px;
+    font-weight: bold;
+    color: $lightgrey;
+  }
+}

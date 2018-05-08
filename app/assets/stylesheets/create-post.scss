@@ -1,0 +1,20 @@
+.post-container {
+  border-radius: 8px;
+  background: $white;
+  margin-top: 32px;
+  padding: 16px;
+  max-width: 700px;
+
+  .post-user {
+    img,
+    h3 {
+      display: inline-block;
+    }
+  }
+
+  .form {
+    .form-control {
+      margin-top: 8px;
+    }
+  }
+}
