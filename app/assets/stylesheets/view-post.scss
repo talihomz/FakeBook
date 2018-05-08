@@ -4,11 +4,23 @@
   padding: 16px;
   margin-top: 16px;
 
+  &:hover .post-header {
+    .pull-right {
+      display: inline;
+    }
+  }
+
   .post-header {
     img,
     h3 {
       display: inline-block;
     }
+    .pull-right {
+      margin-top: 24px;
+      margin-right: 8px;
+      display: none;
+    }
+
   }
 
   .post-body {
