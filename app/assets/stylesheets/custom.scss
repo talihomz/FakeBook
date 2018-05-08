@@ -21,6 +21,10 @@ nav {
   .logo-authenticated {
     margin: 0!important;
     font-size: 36px!important;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .navbar-right {

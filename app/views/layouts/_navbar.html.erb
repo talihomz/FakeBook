@@ -1,7 +1,7 @@
 <nav>
  <div class="container">
    <% if user_signed_in? %>
-    <%= link_to "Fakebook", authenticated_root_path, id: "logo" %>
+    <%= link_to "Fakebook", authenticated_root_path, id: "logo", class: "logo-authenticated" %>
    <% else %>
     <%= link_to "Fakebook", unauthenticated_root_path, id: "logo" %>
    <% end %>
@@ -18,8 +18,7 @@
             <div id="dropdown-content" class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Logout</a>
-              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
             </div>
           </div>
          </div>
