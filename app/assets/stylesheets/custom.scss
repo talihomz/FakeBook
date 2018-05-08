@@ -1,0 +1,117 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$facebook-blue: #3b5998;
+$white: #fff;
+$whitesmoke : #e9ebee;
+$lightgrey: #555;
+
+// Navbar
+nav {
+  background: $facebook-blue;
+
+  #logo {
+    margin-top: 24px;
+    font-size: 48px;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .logo-authenticated {
+    margin: 0!important;
+    font-size: 36px!important;
+  }
+
+  .navbar-right {
+    .form-inline {
+      margin: 16px 0;
+
+      label {
+        display: block;
+        color: $white;
+      }
+
+      .btn {
+        margin-top: 24px;
+      }
+    }
+
+    .navbar-right-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        margin-right: 4px !important;
+      }
+
+      a {
+        font-weight: bold;
+      }
+
+      * {
+        display: inline-block;
+        margin-right: 16px;
+        color: $white;
+      }
+
+      .dropdown {
+        i {
+          cursor: pointer;
+        }
+
+        .dropdown-item {
+          color: $lightgrey;
+          padding: 8px;
+          width: 100%;
+        }
+
+        #dropdown-content {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Welcome
+.register-container {
+  .col-md-7 {
+    img {
+      margin-top: 16px;
+    }
+  }
+
+  .col-md-5 {
+    form {
+      .col-md-6 {
+        padding: 0;
+      }
+
+      .col-md-6.left {
+        padding-right: 10px;
+      }
+      .col-md-6.right {
+        padding-left: 10px;
+      }
+
+      .radio-inline {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      #birthday {
+        margin-top: 16px;
+      }
+
+      .btn-lg {
+        padding-left: 48px;
+        padding-right: 48px;
+      }
+    }
+
+  }
+}
