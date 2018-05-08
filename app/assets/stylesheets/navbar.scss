@@ -7,6 +7,10 @@ nav {
     color: #fff;
     font-weight: bold;
     display: inline-block;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .logo-authenticated {
