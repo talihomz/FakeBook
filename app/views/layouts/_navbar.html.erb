@@ -11,8 +11,8 @@
        <div class="navbar-right">
          <div class="navbar-right-links">
            <%= link_to('Find Friends', find_friends_path) %>
-           <i class="material-icons">notifications</i>
-           <img class="avatar" src="images/ic_account_box_black_24dp_2x.png" alt="avatar">
+           <%= link_to('<i class="material-icons">notifications</i>'.html_safe, notifications_path) %>
+           <%= link_to('<img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">'.html_safe, user_path(1)) %>
            <div class="nav-item dropdown">
             <i class="material-icons" id="dropdown-toggle">keyboard_arrow_down</i>
             <div id="dropdown-content" class="dropdown-menu" aria-labelledby="navbarDropdown">
