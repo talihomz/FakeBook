@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/notifications/', to: 'notification#index', as: :notifications
   get '/privacy_policy', to: 'static_pages#privacy', as: :privacy
 
+  match "*path", to: "application#render_404", via: :all
+
   devise_scope :user do
     authenticated :user do
       root 'home#index', as: :authenticated_root
