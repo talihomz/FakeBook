@@ -1,0 +1,14 @@
+
+<div class="container friends-container">
+  <div class="row">
+    <% 12.times do |i| %>
+      <div class="col-md-3">
+        <div class="card">
+          <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+          <h3>Firstname Lastname</h3>
+          <%= link_to "View", user_path(i), class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

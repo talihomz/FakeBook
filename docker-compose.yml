@@ -1,0 +1,13 @@
+version: '2'
+services:
+  db:
+    image: postgres:10.1-alpine
+  web:
+    build: .
+    command: sh bin/start.sh
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

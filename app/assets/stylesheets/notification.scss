@@ -1,0 +1,16 @@
+.notification-container {
+  padding: 16px 8px;
+
+  .well {
+    p {
+      display: inline;
+    }
+
+    .time {
+      float: right;
+      margin-top: 8px;
+      color: $lightgrey;
+    }
+  }
+}
+
