@@ -1,0 +1,7 @@
+one:
+  name: first_user
+  full_name: First User
+
+two:
+  name: second_user
+  full_name: Second User
