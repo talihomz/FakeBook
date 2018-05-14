@@ -32,5 +32,10 @@ describe Post, type: :model do
       assc = described_class.reflect_on_association(:comments)
       expect(assc.macro).to eq :has_many
     end
+
+    it 'has many notifications' do
+      assc = described_class.reflect_on_association(:notifications)
+      expect(assc.macro).to eq :has_many
+    end
   end
 end
