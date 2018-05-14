@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def render_404(error = "Routing Error", status = :not_found, exception = nil)
-    render "static_pages/not_found"
+    render "static_pages#not_found"
   end
 end
