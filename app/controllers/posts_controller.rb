@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    @post ||= Post.find(params[:id])
+    post
   end
 
   # GET /posts/new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post ||= Post.find(params[:id])
+    post
   end
 
   # POST /posts
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    @post ||= Post.find(params[:id])
+    post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    @post ||= Post.find(params[:id])
+    post
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
@@ -55,6 +55,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post
+   @post ||= Post.find(params[:id])
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.fetch(:post, {})
