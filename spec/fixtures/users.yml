@@ -1,6 +1,8 @@
 one:
-  name: first_user
-  full_name: First User
+  firstname: John
+  lastname: Doe
+  email: johndoe@gmail.com
+  password: password123
 
 two:
   name: second_user
