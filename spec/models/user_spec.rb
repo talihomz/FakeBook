@@ -5,14 +5,14 @@ describe User, type: :model do
   subject { User.new }
 
   describe 'Validations' do
-    describe '#first_name' do
+    describe '#firstname' do
       it 'is invalid when blank' do
-        subject.first_name = ' ' * 6
+        subject.firstname = ' ' * 6
         expect(subject).to_not be_valid
       end
 
       it 'is invalid when longer than 50 characters' do
-        subject.first_name = 'a' * 51
+        subject.firstname = 'a' * 51
         expect(subject).to_not be_valid
       end
 
@@ -21,14 +21,14 @@ describe User, type: :model do
       end
     end
 
-    describe '#last_name' do
+    describe '#lastname' do
       it 'is invalid when blank' do
-        subject.last_name = ' ' * 6
+        subject.lastname = ' ' * 6
         expect(subject).to_not be_valid
       end
 
       it 'is invalid when longer than 50 characters' do
-        subject.last_name = 'a' * 51
+        subject.lastname = 'a' * 51
         expect(subject).to_not be_valid
       end
 
@@ -38,11 +38,6 @@ describe User, type: :model do
     end
 
     describe '#bio' do
-      it 'is invalid when blank' do
-        subject.bio = ' ' * 6
-        expect(subject).to_not be_valid
-      end
-
       it 'is invalid when shorted than 10 characters' do
         subject.bio = 'a' * 8
         expect(subject).to_not be_valid

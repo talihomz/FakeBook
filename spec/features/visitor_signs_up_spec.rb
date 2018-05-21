@@ -2,8 +2,11 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Visitor Sign Up' do
-  subject(:email) { 'johndoe@test.com' }
-  subject(:password) { 'password123' }
+  fixtures :users
+  let(:firstname) { "John" }
+  let(:lastname)  { "Doe" }
+  let(:email)     { "test@fakebook.com" }
+  let(:password)  { "password123" }
 
   scenario 'with valid email and password' do
     sign_up_with email, password
@@ -26,9 +29,13 @@ feature 'Visitor Sign Up' do
 
   def sign_up_with(email, password)
     visit unauthenticated_root_path
+    
+    fill_in 'Firstname', with: 'firstname'
+    fill_in 'Lastname', with: 'lastname'
     fill_in 'Account Email', with: email
     fill_in 'Account Password', with: password
     fill_in 'Confirm Password', with: password
+    
     click_button 'Sign Up'
   end
 end

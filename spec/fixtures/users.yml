@@ -2,8 +2,4 @@ one:
   firstname: John
   lastname: Doe
   email: johndoe@gmail.com
-  password: password123
-
-two:
-  name: second_user
-  full_name: Second User
+  bio: I am a Lumber Jack

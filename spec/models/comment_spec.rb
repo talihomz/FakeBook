@@ -17,7 +17,7 @@ describe Comment, type: :model do
       end
 
       it 'is valid with proper data' do
-        expect(posts(:one)).to be_valid
+        expect(subject).to be_valid
       end
     end
   end
