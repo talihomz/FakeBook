@@ -3,3 +3,8 @@ one:
   lastname: Doe
   email: johndoe@gmail.com
   bio: I am a Lumber Jack
+two:
+  firstname: Jane
+  lastname: Doe
+  email: janedoe@gmail.com
+  bio: I am a carpenter
