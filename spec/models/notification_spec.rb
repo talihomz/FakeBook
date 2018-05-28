@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Notification, type: :model do
+# describe Notification, type: :model do
   # fixtures :notifications
   # subject { comments(:one) }
 
@@ -24,4 +24,4 @@ describe Notification, type: :model do
   #     expect(assc.macro).to eq :belongs_to
   #   end
   # end
-end
+# end

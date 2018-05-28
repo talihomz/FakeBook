@@ -1,5 +1,5 @@
-class Notification < ApplicationRecord
-  validates :activity, presence: true
+# class Notification < ApplicationRecord
+#   validates :activity, presence: true
 
-  belongs_to :user
-end
+#   belongs_to :user
+# end
