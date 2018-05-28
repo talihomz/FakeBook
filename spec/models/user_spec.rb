@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe User, type: :model do
   fixtures :users
-  subject { User.new }
+  subject { users(:one) } 
+  # subject { User.new }
+  # let(:valid_user) { users(:one) }
 
   describe 'Validations' do
     describe '#firstname' do
@@ -17,7 +19,7 @@ describe User, type: :model do
       end
 
       it 'is valid with proper data' do
-        expect(users(:one)).to be_valid
+        expect(subject).to be_valid
       end
     end
 
