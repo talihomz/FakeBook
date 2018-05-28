@@ -1,19 +1,23 @@
 <nav>
- <div class="container">
-   <% if user_signed_in? %>
+  <div class="container">
+    <% if user_signed_in? %>
     <%= link_to "Fakebook", authenticated_root_path, id: "logo", class: "logo-authenticated" %>
-   <% else %>
+    <% else %>
     <%= link_to "Fakebook", unauthenticated_root_path, id: "logo" %>
-   <% end %>
+    <% end %>
 
-   <ul class="nav navbar-nav navbar-right">
-     <% if user_signed_in? %>
-       <div class="navbar-right">
-         <div class="navbar-right-links">
-           <%= link_to('Find Friends', find_friends_path) %>
-           <%= link_to('<i class="material-icons">notifications</i>'.html_safe, notifications_path) %>
-           <%= link_to('<img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">'.html_safe, user_path(1)) %>
-           <div class="nav-item dropdown">
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+      <div class="navbar-right">
+        <div class="navbar-right-links">
+          <%= link_to('Find Friends', find_friends_path) %>
+          <%= link_to notifications_path do %>
+            <i class="material-icons">notifications</i>
+          <% end %>
+          <%= link_to user_path(1) do %>
+            <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
+          <% end %>
+          <div class="nav-item dropdown">
             <i class="material-icons" id="dropdown-toggle">keyboard_arrow_down</i>
             <div id="dropdown-content" class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
@@ -21,29 +25,29 @@
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
             </div>
           </div>
-         </div>
-       </div>
-     <% else %>
-       <div class="navbar-right">
-         <%= form_for(resource, as: resource_name, html: { class: "form-inline" }, url: session_path(resource_name)) do |f| %>
-           <div class="form-group">
-             <%= f.label :email %>
-             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
-           </div>
-           <div class="form-group">
-             <%= f.label :password %>
-             <%= f.password_field :password, autocomplete: "off", class: 'form-control', required: true %>
-           </div>
-           <button type="submit" class="btn btn-primary mb-2">Log In</button>
-           <br>
-           <% if devise_mapping.rememberable? -%>
-             <div class="checkbox">
-               <label><input type="checkbox" value="remember">Remember Me</label>
-             </div>
-           <% end -%>
-         <% end %>
-       </div>
-     <% end %>
-   </ul>
- </div>
+        </div>
+      </div>
+      <% else %>
+      <div class="navbar-right">
+        <%= form_for(@user, html: { class: "form-inline" }, url: session_path(@user)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control', required: true %>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Log In</button>
+        <br>
+        <% if devise_mapping.rememberable? -%>
+        <div class="checkbox">
+          <label><input type="checkbox" value="remember">Remember Me</label>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </ul>
+  </div>
 </nav>
