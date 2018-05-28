@@ -1,5 +1,5 @@
 one:
-  requestor : one
-  friend : two
+  requestor: one
+  friend: two
   status: 1
   
