@@ -31,14 +31,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     post
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        # format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -46,10 +42,7 @@ class PostsController < ApplicationController
   def destroy
     post
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      # format.json { head :no_content }
-    end
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
@@ -61,6 +54,5 @@ class PostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:content)
-    # params.fetch(:post, {})
   end
 end
