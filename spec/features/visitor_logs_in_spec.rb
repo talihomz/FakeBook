@@ -2,12 +2,16 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Visitor log in' do
-  subject(:email) { 'johndoe@test.com' }
-  subject(:password) { 'password123' }
+  # subject(:email) { 'johndoe@test.com' }
+  # subject(:password) { 'password123' }
 
-  before :each do
-    User.create(email: email, password: password)
-  end
+  # before :each do
+  #   User.create(email: email, password: password)
+  # end
+
+  fixtures :users
+  subject(:email) {users(:one).email}
+  subject(:password) {users(:one).password}
 
   scenario 'with valid username and password' do
     log_in_with email, password
