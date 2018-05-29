@@ -4,7 +4,7 @@
     <h3>Firstname Lastname</h3>
   </div>
 
-  <%= form_for(@post, html: { class: 'form' }, url: post_path, html: {method: "patch"}) do |f| %>
+  <%= form_for(@post, html: { class: 'form', method: "patch" }, url: post_path) do |f| %>
     <div class="form-group">
       <textarea placeholder="What's not on your mind?" class="form-control" rows="5" id="content" name="post[content]"><%= @post.content %></textarea>
     </div>
