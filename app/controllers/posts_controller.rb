@@ -18,15 +18,13 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        # format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        # format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to authenticated_root_path
+    else
+      flash.now[:error] = @post.errors.messages
+      render :new
     end
   end
 
@@ -59,9 +57,10 @@ class PostsController < ApplicationController
   def post
    @post ||= Post.find(params[:id])
   end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:content)
-      # params.fetch(:post, {})
-    end
+  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:content)
+    # params.fetch(:post, {})
+  end
 end
