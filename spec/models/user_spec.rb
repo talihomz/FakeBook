@@ -40,11 +40,6 @@ describe User, type: :model do
     end
 
     describe '#bio' do
-      it 'is invalid when shorted than 10 characters' do
-        subject.bio = 'a' * 8
-        expect(subject).to_not be_valid
-      end
-
       it 'is invalid when longer than 300 characters' do
         subject.bio = 'a' * 301
         expect(subject).to_not be_valid

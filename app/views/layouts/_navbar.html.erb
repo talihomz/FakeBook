@@ -29,7 +29,7 @@
       </div>
       <% else %>
       <div class="navbar-right">
-        <%= form_for(@user, html: { class: "form-inline" }, url: session_path(@user)) do |f| %>
+        <%= form_for(@user, html: { id: "log-in", class: "form-inline" }, url: session_path(@user)) do |f| %>
         <div class="form-group">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>

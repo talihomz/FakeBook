@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :firstname, presence: true, length: { maximum: 50 }
   validates :lastname, presence: true, length: { maximum: 50 }
-  validates :bio, length: { minimum: 10, maximum: 300 }
+  validates :bio, length: { maximum: 300 }
 
   has_many :posts
   has_many :notifications
