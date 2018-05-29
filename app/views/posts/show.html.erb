@@ -88,11 +88,11 @@
         </button>
       </div>
       <div class="modal-body">
-        FORM HERE
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        Please confirm that you want to delete this post
+
+        <%= form_for(@post, html: { class: 'form', method: "delete" }, url: post_path) do |f| %>
+          <button type="submit" class="btn btn-primary pull-right">Update</button>
+        <% end %>
       </div>
     </div>
   </div>
