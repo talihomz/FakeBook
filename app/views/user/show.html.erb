@@ -2,12 +2,16 @@
     <div class="row">
       <div class="col-md-3 profile-col">
         <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
-        <h3><a href="#">Firstname Lastname</a></h3>
+        <h3><%= @user.firstname << " " << @user.lastname %></h3>
 
         <div class="panel panel-default">
           <div class="panel-heading">About Me</div>
           <div class="panel-body">
-            <p>Lorem ipsum dolor sit amet, consectetur  minim veniam,onsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <% if @user.bio %>
+              <%= @user.bio %>
+            <% else %>
+              <%= link_to "Write something about yourself", edit_user_path(@user.id)  %>
+            <% end %>
           </div>
         </div>
 
@@ -35,16 +39,18 @@
               </div>
               <hr>
               <div class="post-footer">
-                <div class="footer-icon">
-                  <i class="material-icons">thumb_up</i>
-                  <span>7</span>
+                <div class="left-controls">
+                  <div class="footer-icon">
+                    <i class="material-icons">thumb_up</i>
+                    <span>7</span>
+                  </div>
+                  <div class="footer-icon">
+                    <i class="material-icons">mode_comment</i>
+                    <span><%= post.comments.length %></span>
+                  </div>
                 </div>
-                <div class="footer-icon">
-                  <i class="material-icons">mode_comment</i>
-                  <span>7</span>
-                </div>
-                <div class="footer-icon pull-right">
-                  <i class="material-icons">delete</i>
+                <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
+                  <i id="delete-post" class="material-icons">delete</i>
                 </div>
               </div>
             </div>

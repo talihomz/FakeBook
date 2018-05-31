@@ -2,14 +2,16 @@
   max-width: 850px;
   .form-row {
 
-    .col-md-4 {
+    .col-md-3 {
       img {
         width: 160px;
         height: 160px;
+        margin: 24px 0 32px;
+        border-radius: 50%;
       }
     }
 
-    .col-md-8 {
+    .col-md-9 {
       margin-top: 24px;
     }
 
