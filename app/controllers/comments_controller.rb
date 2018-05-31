@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment added successfully!"
       redirect_to Post.find(@comment.post_id)
     else
-      flash[:error] = @comment.errors.messages
+      flash.now[:error] = @comment.errors.messages
     end
   end
 

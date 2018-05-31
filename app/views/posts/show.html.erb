@@ -42,7 +42,7 @@
     <!-- Regular comments -->
     <% @comments.each do |comment| %>
     <div class="comment">
-      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <img src="http://via.placeholder.com/48x48" alt="">
       <p><%= comment.content %></p>
       <span class="comment-time"><%= time_ago_in_words(comment.created_at) << " ago" %></span>
       <hr>
