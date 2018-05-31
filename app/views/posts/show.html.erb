@@ -1,84 +1,99 @@
 <!-- main section -->
   <div class="container">
 
-    <div class="post">
-      <div class="post-header">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <h3><a href="#">Firstname Lastname</a></h3>
-      </div>
-
-      <div class="post-body">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-        </p>
-      </div>
-      <hr>
-      <div class="post-footer">
-        <div class="footer-icon">
-          <i class="material-icons">thumb_up</i>
-          <span>7</span>
-        </div>
-        <div class="footer-icon">
-          <i class="material-icons">mode_comment</i>
-          <span>7</span>
-        </div>
-        <div class="footer-icon pull-right">
-          <i class="material-icons">delete</i>
-        </div>
-      </div>
+  <div class="post" data-id=<%= @post.id %>>
+    <div class="post-header">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <h3><a href="#"><%= @post.user.firstname << " " << @post.user.lastname %></a></h3>
     </div>
 
-    <div class="post-comments">
-      <!-- input field for a comment -->
-      <div class="comment" id="post-comment-form">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <form class="form-inline">
-          <input class="form-control" type="text" name="comment" placeholder="add comment">
-          <button class="btn btn-primary" type="submit">Comment</button>
-        </form>
-        <span class="comment-time">22:22</span>
-        <hr>
-      </div>
+    <div class="post-body">
+      <p><%= @post.content %></p>
+    </div>
 
-      <!-- Regular comments -->
-      <div class="comment">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <p>Comment text</p>
-        <span class="comment-time">22:22</span>
-        <hr>
+    <hr>
+    <div class="post-footer">
+      <div class="footer-icon">
+        <i class="material-icons">thumb_up</i>
+        <span>7</span>
       </div>
-
-      <div class="comment">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <p>Comment text</p>
-        <span class="comment-time">22:22</span>
-        <hr>
+      <div class="footer-icon">
+        <i class="material-icons">mode_comment</i>
+        <span><%= @post.comments.length %></span>
       </div>
-
-      <div class="comment">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <p>Comment text</p>
-        <span class="comment-time">22:22</span>
-        <hr>
-      </div>
-
-      <div class="comment">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <p>Comment text</p>
-        <span class="comment-time">22:22</span>
-        <hr>
-      </div>
-
-      <div class="comment">
-        <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-        <p>Comment text</p>
-        <span class="comment-time">22:22</span>
-        <hr>
+      <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
+        <i class="material-icons">delete</i>
       </div>
     </div>
   </div>
-  
+
+  <div class="post-comments">
+    <!-- input field for a comment -->
+    <div class="comment" id="post-comment-form">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <form class="form-inline">
+        <input class="form-control" type="text" name="comment" placeholder="add comment">
+        <button class="btn btn-primary" type="submit">Comment</button>
+      </form>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+
+    <!-- Regular comments -->
+    <div class="comment">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <p>Comment text</p>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+
+    <div class="comment">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <p>Comment text</p>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+
+    <div class="comment">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <p>Comment text</p>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+
+    <div class="comment">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <p>Comment text</p>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+
+    <div class="comment">
+      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <p>Comment text</p>
+      <span class="comment-time">22:22</span>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-post-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this post?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please confirm that you want to delete this post
+
+        <%= form_for(@post, html: { class: 'form', method: "delete" }, url: post_path) do |f| %>
+          <button type="submit" class="btn btn-primary pull-right">Update</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

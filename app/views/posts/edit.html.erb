@@ -1,6 +1,16 @@
-<h1>Editing Post</h1>
+<div class="container post-container">
+  <div class="post-user">
+    <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+    <h3>Firstname Lastname</h3>
+  </div>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+  <%= form_for(@post, html: { class: 'form', method: "patch" }, url: post_path) do |f| %>
+    <div class="form-group">
+      <textarea placeholder="What's not on your mind?" class="form-control" rows="5" id="content" name="post[content]"><%= @post.content %></textarea>
+    </div>
+    <div>
+      <%= link_to 'Back', authenticated_root_path, class:"btn btn-info" %>
+      <button type="submit" class="btn btn-primary pull-right">Update</button>
+    </div>
+  <% end %>
+</div>
