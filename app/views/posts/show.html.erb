@@ -3,8 +3,10 @@
 
   <div class="post" data-id=<%= @post.id %>>
     <div class="post-header">
-      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-      <h3><a href="#"><%= @post.user.firstname << " " << @post.user.lastname %></a></h3>
+    <%= link_to user_path(current_user.id) do %>
+      <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
+      <h3><%= @post.user.firstname << " " << @post.user.lastname %></h3>
+    <% end %>
     </div>
 
     <div class="post-body">
@@ -32,7 +34,7 @@
   <div class="post-comments">
     <!-- input field for a comment -->
     <div class="comment" id="post-comment-form">
-      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
+      <img src="http://via.placeholder.com/48x48" alt="">      
       <%= form_for(@comment, html: { class: 'form-inline', method: 'post' }, url: comments_path) do |f| %>
         <%= f.hidden_field :post_id %>
         <input class="form-control" type="text" name="comment[content]" placeholder="add comment">
@@ -44,7 +46,9 @@
     <!-- Regular comments -->
     <% @comments.each do |comment| %>
     <div class="comment">
-      <img src="http://via.placeholder.com/48x48" alt="">
+    <%= link_to user_path(current_user.id) do %>
+      <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
+    <% end %>
       <p><%= comment.content %></p>
       <span class="comment-time"><%= time_ago_in_words(comment.created_at) << " ago" %></span>
       <hr>
