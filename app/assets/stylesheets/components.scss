@@ -1,3 +1,12 @@
 .modal-title {
   display: inline-block;
 }
+
+// Material icons
+.material-icons {
+  cursor: pointer;
+
+  &:hover {
+    color: $facebook-blue;
+  }
+}

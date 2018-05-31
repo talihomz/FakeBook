@@ -34,18 +34,32 @@
 
   .post-footer {
     padding: 0 8px;
+    display: flex;
 
-    .footer-icon {
-      display: inline-block;
-      margin-right: 8px;
+    .left-controls {
+      flex: 1;
+      display: flex;
 
-      .material-icons {
-        font-size: 20px;
+      .footer-icon {
+        display: inline-block;
+        margin-right: 16px;
+        display: flex;
+  
+        .material-icons {
+          font-size: 20px;
+        }
+  
+        span {
+          font-size: 14px;
+          margin-left: 8px;
+        }
       }
+    }    
 
-      span {
-        font-size: 14px;
-        margin-left: 8px;
+    #delete-post {
+      align-self: right;
+      &:hover {
+        color: red;
       }
     }
   }
