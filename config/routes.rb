@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :comments, only: [:create]
 
   devise_for :user, :controllers => {
     sessions: 'users/sessions',

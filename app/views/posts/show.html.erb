@@ -31,11 +31,11 @@
     <!-- input field for a comment -->
     <div class="comment" id="post-comment-form">
       <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-      <form class="form-inline">
-        <input class="form-control" type="text" name="comment" placeholder="add comment">
+      <%= form_for(@comment, html: { class: 'form-inline', method: 'post' }, url: comments_path) do |f| %>
+        <%= f.hidden_field :post_id %>
+        <input class="form-control" type="text" name="comment[content]" placeholder="add comment">
         <button class="btn btn-primary" type="submit">Comment</button>
-      </form>
-      <span class="comment-time">22:22</span>
+      <% end %>
       <hr>
     </div>
 

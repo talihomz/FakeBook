@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     post
+    @comment = Comment.new(post_id: params[:id])
   end
 
   # GET /posts/new
