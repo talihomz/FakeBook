@@ -7,7 +7,7 @@ describe Comment, type: :model do
   describe 'Validations' do
     describe '#content' do
       it 'is invalid when blank' do
-        subject.content = ' ' * 10
+        subject.content = ' ' * 1
         expect(subject).to_not be_valid
       end
 

@@ -13,15 +13,14 @@
 
     <div class="container">
       <% flash.each do |type, message| %>
-        <div class="alert <%= bootstrap_class_for(type) %> fade in">
+        <div class="<%= bootstrap_class_for(type) %> fade in">
           <button class="close" data-dismiss="alert">×</button>
-          <%= type %>
           <%= message %>
         </div>
       <% end %>
     </div>
 
-    <!-- refctor later -->
+    <!-- refactor later -->
     <%= yield %>
 
     <%= render 'layouts/javascripts' %>

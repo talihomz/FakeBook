@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      flash[:success] = "Comment added successfully!"
       redirect_to Post.find(@comment.post_id)
     else
       flash[:error] = @comment.errors.messages

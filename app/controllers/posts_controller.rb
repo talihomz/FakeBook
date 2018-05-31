@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def show
     post
     @comment = Comment.new(post_id: params[:id])
+    @comments = @post.comments.reverse
   end
 
   # GET /posts/new
