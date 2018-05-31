@@ -82,17 +82,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this post?</h5>
+        <h4 class="modal-title" style="{ display: inline-block; }">Delete?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Please confirm that you want to delete this post
-
-        <%= form_for(@post, html: { class: 'form', method: "delete" }, url: post_path) do |f| %>
-          <button type="submit" class="btn btn-primary pull-right">Update</button>
-        <% end %>
+        <p>Are you sure you want to delete this post?</p>
+      </div>
+      <div class="modal-footer">
+      <%= form_for(@post, html: { class: 'form', method: "delete" }, url: post_path) do |f| %>
+        <button type="submit" class="btn btn-danger pull-right">Delete</button>
+      <% end %>
       </div>
     </div>
   </div>
