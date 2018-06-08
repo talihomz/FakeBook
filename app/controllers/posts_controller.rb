@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def post
    @post ||= Post.find(params[:id])
-   @like = @post.likes.where("user_id = ?", current_user.id)
+   @like = @post.likes.where("user_id = ?", current_user.id).first
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

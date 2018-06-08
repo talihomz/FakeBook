@@ -11,6 +11,7 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.delete
+    flash.now[:success] = 'Deleted'
     redirect_back(fallback_location: authenticated_root_path)
   end
   private
