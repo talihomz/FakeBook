@@ -19,8 +19,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to authenticated_root_path
@@ -42,8 +41,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    post
-    @post.destroy
+    post.destroy
     redirect_to authenticated_root_path, notice: 'Post was successfully destroyed.'
   end
 
