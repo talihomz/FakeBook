@@ -5,8 +5,9 @@
 // Material icons
 .material-icons {
   cursor: pointer;
+  color: #333;
+}
 
-  &:hover {
-    color: $facebook-blue;
-  }
+.material-icons.liked {
+  color: $facebook-blue;
 }
