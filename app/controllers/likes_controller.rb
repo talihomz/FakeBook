@@ -2,17 +2,16 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(like_params)
     if @like.save
-      redirect_to :back
+      redirect_back(fallback_location: authenticated_root_path)
     else
-      flash[:danger] = 'Unable to like this post'
-      redirect_to :back
+      flash.now[:danger] = 'Unable to like this post'
     end
   end
 
   def destroy
     @like = Like.find(params[:id])
     @like.delete
-    redirect_to :back
+    redirect_back(fallback_location: authenticated_root_path)
   end
   private
 
