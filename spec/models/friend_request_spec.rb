@@ -30,12 +30,4 @@ describe FriendRequest, type: :model do
       end
     end
   end
-
-  # ASK EMILY
-  # describe 'Associations' do
-  #   it 'belongs to user' do
-  #     assc = described_class.reflect_on_association(:user)
-  #     expect(assc.macro).to eq :belongs_to
-  #   end
-  # end
 end

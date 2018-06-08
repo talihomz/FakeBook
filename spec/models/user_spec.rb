@@ -50,21 +50,4 @@ describe User, type: :model do
       end
     end
   end
-
-  describe 'Associations' do
-    it 'has many posts' do
-      assc = described_class.reflect_on_association(:posts)
-      expect(assc.macro).to eq :has_many
-    end
-
-    it 'has many notifications' do
-      assc = described_class.reflect_on_association(:notifications)
-      expect(assc.macro).to eq :has_many
-    end
-
-    it 'has many friends' do
-      assc = described_class.reflect_on_association(:friends)
-      expect(assc.macro).to eq :has_many
-    end
-  end
 end
