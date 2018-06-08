@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :notifications
+  has_many :likes
   has_many :friends
   has_many :friend_requests, :class_name => 'User', :foreign_key => 'requestor_id'
   has_many :friends_requesting, :class_name => 'User', :foreign_key => 'friend_id'

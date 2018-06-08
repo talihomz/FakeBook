@@ -18,13 +18,13 @@
       <div class="left-controls">
         <div class="footer-icon">
           <i class="material-icons">thumb_up</i>
-          <span>7</span>
+          <span><%= @post.likes.length %></span>
         </div>
         <div class="footer-icon">
           <i class="material-icons">mode_comment</i>
           <span><%= @post.comments.length %></span>
         </div>
-      </div>      
+      </div>
       <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
         <i id="delete-post" class="material-icons">delete</i>
       </div>
@@ -34,7 +34,7 @@
   <div class="post-comments">
     <!-- input field for a comment -->
     <div class="comment" id="post-comment-form">
-      <img src="http://via.placeholder.com/48x48" alt="">      
+      <img src="http://via.placeholder.com/48x48" alt="">
       <%= form_for(@comment, html: { class: 'form-inline', method: 'post' }, url: comments_path) do |f| %>
         <%= f.hidden_field :post_id %>
         <input class="form-control" type="text" name="comment[content]" placeholder="add comment">
