@@ -33,8 +33,13 @@
         <span><%= post.comments.length %></span>
       </div>
     </div>
-    <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
-      <i id="delete-post" class="material-icons">delete</i>
+    <div class="right-controls">
+      <%= link_to edit_post_path(post.id) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+      <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
+        <i id="delete-post" class="material-icons">delete</i>
+      </div>
     </div>
   </div>
 </div>

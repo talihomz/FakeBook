@@ -44,20 +44,21 @@
         display: inline-block;
         margin-right: 16px;
         display: flex;
-  
+
         .material-icons {
           font-size: 20px;
         }
-  
+
         span {
           font-size: 14px;
           margin-left: 8px;
         }
       }
-    }    
+    }
 
     #delete-post {
       align-self: right;
+      margin-left: 12px;
       &:hover {
         color: red;
       }
