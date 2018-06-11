@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     post
+    @hide_post_link = true
     @comment = Comment.new(post_id: params[:id])
     @comments = @post.comments.reverse
   end
