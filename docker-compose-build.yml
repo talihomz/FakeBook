@@ -4,7 +4,7 @@ services:
     image: postgres:10.1-alpine
   web:
     build: .
-    command: sh bin/build.sh
+    command: sh build.sh
     volumes:
       - .:/usr/src/app
     depends_on:
