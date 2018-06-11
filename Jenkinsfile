@@ -1,14 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent { label 'Mjengo' }
     stages {
-        stage('Test Models') {
+        stage('Tests') {
             steps {
-                sh 'rspec -f d spec/models'
-            }
-        }
-        stage('Test Features') {
-            steps {
-                sh 'rspec -f d spec/features'
+                sh 'docker-compose up -f docker-compose-build.yml'
             }
         }
     }
