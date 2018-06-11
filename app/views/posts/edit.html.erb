@@ -1,7 +1,7 @@
 <div class="container post-container">
   <div class="post-user">
     <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-    <h3>Firstname Lastname</h3>
+    <h3><%= "#{@post.user.firstname} #{@post.user.lastname}" %></h3>
   </div>
 
   <%= form_for(@post, html: { class: 'form', method: "patch" }, url: post_path) do |f| %>
