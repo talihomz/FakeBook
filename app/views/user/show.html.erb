@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-md-3 profile-col">
         <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
-        <h3><%= @user.firstname << " " << @user.lastname %></h3>
+        <h3><%= "#{@user.firstname} #{@user.lastname}" %></h3>
 
         <div class="panel panel-default">
           <div class="panel-heading">About Me</div>
@@ -25,35 +25,9 @@
       <div class="col-md-9 posts-col">
         <%= link_to "Create a post", new_post_path, class: 'btn btn-success btn-lg' %>
 
-        <!-- Posts Partial -->
         <div class="posts">
           <% @posts.each do |post| %>
-            <div class="post">
-              <div class="post-header">
-                <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-                <h3><a href="#"><%= post.user.firstname << " " << post.user.lastname %></a></h3>
-                <%= link_to "See More", post_path(post.id), class: 'pull-right' %>
-              </div>
-              <div class="post-body">
-                <p><%= post.content %></p>
-              </div>
-              <hr>
-              <div class="post-footer">
-                <div class="left-controls">
-                  <div class="footer-icon">
-                    <i class="material-icons">thumb_up</i>
-                    <span>7</span>
-                  </div>
-                  <div class="footer-icon">
-                    <i class="material-icons">mode_comment</i>
-                    <span><%= post.comments.length %></span>
-                  </div>
-                </div>
-                <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
-                  <i id="delete-post" class="material-icons">delete</i>
-                </div>
-              </div>
-            </div>
+            <%= render 'posts/show', post: post, like: like(post.id) %>
           <% end %>
         </div>
 
