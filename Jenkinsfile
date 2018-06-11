@@ -1,10 +1,14 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('Test Models') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'rspec -f d models'
+            }
+        }
+        stage('Test Features') {
+            steps {
+                sh 'rspec -f d features'
             }
         }
     }
