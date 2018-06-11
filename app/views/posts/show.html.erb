@@ -1,43 +1,7 @@
 <!-- main section -->
   <div class="container">
 
-  <div class="post">
-    <div class="post-header">
-    <%= link_to user_path(current_user.id) do %>
-      <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
-      <h3><%= @post.user.firstname << " " << @post.user.lastname %></h3>
-    <% end %>
-    </div>
-
-    <div class="post-body">
-      <p><%= @post.content %></p>
-    </div>
-
-    <hr>
-    <div class="post-footer">
-      <div class="left-controls">
-        <div class="footer-icon">
-          <% if @like.nil? %>
-          <%= link_to like_post_path(like: {post_id: @post.id}), method: :post do %>
-            <i class="material-icons">thumb_up</i>
-          <% end %>
-          <% else %>
-          <%= link_to unlike_post_path(@like.id), method: :delete do %>
-            <i class="material-icons liked">thumb_up</i>
-          <% end %>
-          <% end %>
-          <span><%= @post.likes.length %></span>
-        </div>
-        <div class="footer-icon">
-          <i class="material-icons">mode_comment</i>
-          <span><%= @post.comments.length %></span>
-        </div>
-      </div>
-      <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
-        <i id="delete-post" class="material-icons">delete</i>
-      </div>
-    </div>
-  </div>
+  <%= render 'posts/show', post: @post, like: @like %>
 
   <div class="post-comments">
     <!-- input field for a comment -->
