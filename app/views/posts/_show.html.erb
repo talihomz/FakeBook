@@ -3,9 +3,9 @@
   <%= link_to user_path(current_user.id) do %>
     <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
     <h3><%= "#{post.user.firstname} #{post.user.lastname}" %></h3>
-    <% unless @hide_post_link %>
+    <!-- <% unless @hide_post_link %>
       <%= link_to "See More", post_path(post.id), class: "pull-right" %>
-    <% end %>
+    <% end %> -->
   <% end %>
   </div>
 
@@ -29,7 +29,9 @@
         <span><%= post.likes.length %></span>
       </div>
       <div class="footer-icon">
-        <i class="material-icons">mode_comment</i>
+        <%= link_to post_path(post.id), class: "pull-right" do %>
+          <i class="material-icons">mode_comment</i>
+        <% end %>
         <span><%= post.comments.length %></span>
       </div>
     </div>
@@ -39,6 +41,28 @@
       <% end %>
       <div data-toggle="modal" data-target="#delete-post-modal" class="footer-icon pull-right">
         <i id="delete-post" class="material-icons">delete</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-post-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" style="{ display: inline-block; }">Delete?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this post?</p>
+      </div>
+      <div class="modal-footer">
+      <%= link_to post_path(post.id), method: :delete do %>
+        <button class="btn btn-danger pull-right">Delete</button>
+      <% end %>
       </div>
     </div>
   </div>

@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
+    post = Post.find(params[:id])
     post.destroy
     redirect_to authenticated_root_path, notice: 'Post was successfully destroyed.'
   end
