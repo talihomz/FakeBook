@@ -72,8 +72,17 @@
   padding: 16px;
   margin-top: 16px;
 
+  .comment.new {
+    display: flex;
+    .form-control {
+      height: 100%;
+    }
+    
+  }
+
   .comment {
     margin-bottom: 16px;
+    padding: 4px 0;
     img {
       display: inline-block;
       border-radius: 50%;

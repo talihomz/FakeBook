@@ -5,7 +5,7 @@
 
   <div class="post-comments">
     <!-- input field for a comment -->
-    <div class="comment" id="post-comment-form">
+    <div class="comment new" id="post-comment-form">
       <img src="http://via.placeholder.com/48x48" alt="">
       <%= form_for(@comment, html: { class: 'form-inline', method: 'post' }, url: comments_path) do |f| %>
         <%= f.hidden_field :post_id %>
