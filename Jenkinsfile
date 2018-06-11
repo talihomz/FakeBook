@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Mjengo' }
+    agent { any }
     stages {
         stage('Tests') {
             steps {
