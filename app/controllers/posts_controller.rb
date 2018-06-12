@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     post
-    @hide_post_link = true
     @comment = Comment.new(post_id: params[:id])
     @comments = @post.comments.reverse
   end
@@ -48,9 +47,9 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   def destroy
-    post = Post.find(params[:id])
-    authorize post
-    post.destroy
+    post
+    authorize @post
+    @post.destroy
     redirect_to authenticated_root_path, notice: 'Post was successfully destroyed.'
   end
 
@@ -59,6 +58,7 @@ class PostsController < ApplicationController
   def post
    @post ||= Post.find(params[:id])
    @like = @post.likes.where("user_id = ?", current_user.id).first
+   return @post
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
