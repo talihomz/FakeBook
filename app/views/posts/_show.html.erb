@@ -35,6 +35,7 @@
         <span><%= post.comments.length %></span>
       </div>
     </div>
+    <% if post.user.id == current_user.id %>
     <div class="right-controls">
       <%= link_to edit_post_path(post.id) do %>
         <i class="material-icons">edit</i>
@@ -43,6 +44,7 @@
         <i id="delete-post" class="material-icons">delete</i>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
 
