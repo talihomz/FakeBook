@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     post
+    authorize @post
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
     else
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     post = Post.find(params[:id])
+    authorize post
     post.destroy
     redirect_to authenticated_root_path, notice: 'Post was successfully destroyed.'
   end
