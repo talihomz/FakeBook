@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception
 
   def render_404(error = "Routing Error", status = :not_found, exception = nil)
