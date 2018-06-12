@@ -1,0 +1,7 @@
+en:
+  pundit:
+    default: "You have requested a page that you do not have access to."
+    post_policy:
+      show?: "You're not allowed to see this."
+      update?: "You cannot update a post that is not yours."
+      destroy?: "You cannot delete a post that is not yours."
