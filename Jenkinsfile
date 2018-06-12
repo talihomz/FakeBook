@@ -9,6 +9,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'git push heroku feature/posts:master'
+        sh 'git checkout feature/posts'
       }
     }
   }
