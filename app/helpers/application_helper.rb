@@ -17,9 +17,9 @@ module ApplicationHelper
       when :success
         result << "alert-success"
       when :error
-        result << "alert-error"
+        result << "alert-danger"
       when :alert
-        result << "alert-block"
+        result << "alert-warning"
       when :notice
         result << "alert-info"
       else

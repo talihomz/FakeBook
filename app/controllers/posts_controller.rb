@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 
+  rescue_from Pundit::NotAuthorizedError do |ex|
+    flash[:error] = ex.message
+    redirect_to authenticated_root_path
+  end
+
   # GET /posts/1
   def show
     post
