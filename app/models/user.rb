@@ -12,7 +12,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :notifications
   has_many :likes
-  has_many :friends
-  has_many :friend_requests, :class_name => 'User', :foreign_key => 'requestor_id'
-  has_many :friends_requesting, :class_name => 'User', :foreign_key => 'friend_id'
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+  has_many :friend_requests, dependent: :destroy
+  has_many :pending_friends, through: :friend_requests, source: :friends
+
+  def remove_friend
+    current_user.friends.destroy(friend)
+  end
 end
