@@ -1,0 +1,19 @@
+one:
+  content: Rails is awesome!
+  user: one
+  post: one
+
+two:
+  content: R
+  user: two
+  post: one
+
+three:
+  content: I post very often :-)
+  user: one
+  post: one
+
+four:
+  content: Not quitting anytime soon :=P
+  user: one
+  post: one

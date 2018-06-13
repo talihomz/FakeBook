@@ -11,6 +11,10 @@ development:
   <<: *default
   database: fakebook_development
 
+test:
+  <<: *default
+  database: fakebook_development
+
 production:
   <<: *default
   database: fakebook_production

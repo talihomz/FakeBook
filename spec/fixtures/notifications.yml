@@ -1,0 +1,13 @@
+one:
+  user: one
+
+two:
+  user: two
+
+three:
+  type: post
+  user: one
+
+four:
+  type: post
+  user: one
