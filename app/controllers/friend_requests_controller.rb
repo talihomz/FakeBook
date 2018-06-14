@@ -6,8 +6,9 @@ class FriendRequestsController < ApplicationController
         @friend_request = current_user.friend_requests.build(friend: friend)
 
         authorize @friend_request
-        
+
         if @friend_request.save
+            flash[:success] = "Friend request sent successfully!"
             redirect_to find_friends_path
         else
             flash.now[:error] = @friend_request.errors

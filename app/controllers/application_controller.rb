@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError do |ex|
     flash[:error] = ex.message
-    redirect_to authenticated_root_path
+    redirect_back(fallback_location: authenticated_root_path)
   end
 
   def render_404(error = "Routing Error", status = :not_found, exception = nil)
