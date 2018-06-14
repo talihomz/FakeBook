@@ -23,7 +23,8 @@
     <!-- refactor later -->
     <%= yield %>
 
-    <%= render 'layouts/javascripts' %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-3.3.1.min.js", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", 'data-turbolinks-track': 'reload' %>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
