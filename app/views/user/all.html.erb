@@ -1,12 +1,11 @@
-
 <div class="container friends-container">
   <div class="row">
-    <% 12.times do |i| %>
+    <% others.each do |user| %>
       <div class="col-md-3">
         <div class="card">
           <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-          <h3>Firstname Lastname</h3>
-          <%= link_to "View", user_path(i), class: "btn btn-primary btn-lg" %>
+          <h3><%= "#{user.firstname} #{user.firstname}" %></h3>
+          <%= link_to "See Profile", user_path(user.id), class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>

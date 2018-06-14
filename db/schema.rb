@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20180613183117) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "requestor_id"
+    t.bigint "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friend_requests_on_friend_id"
+    t.index ["requestor_id"], name: "index_friend_requests_on_requestor_id"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
