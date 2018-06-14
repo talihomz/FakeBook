@@ -7,3 +7,4 @@ en:
       destroy?: "You cannot delete a post that is not yours."
     friend_request_policy:
       create?: "You have already sent a request to this user."
+      destroy?: "Friend request to be deleted does not exist."

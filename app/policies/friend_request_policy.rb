@@ -22,6 +22,7 @@ class FriendRequestPolicy < ApplicationPolicy
   end
 
   def destroy?
+    request_exists?
   end
 
   private

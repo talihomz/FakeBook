@@ -1,3 +1,5 @@
+require 'pp'
+
 class FriendRequestsController < ApplicationController
     before_action :set_friend_request, except: [:index, :create]
 
@@ -26,11 +28,22 @@ class FriendRequestsController < ApplicationController
     end
 
     def destroy
-        @friend_request.destroy
-        head :no_content
+        if @friend_request.nil?
+            flash[:error] = "Cannot delete NULL friend request."
+            redirect_to find_friends_path       
+        else
+            authorize @friend_request
+
+            if @friend_request.destroy
+                flash[:success] = "Cancelled successfully!"                
+                redirect_to find_friends_path                 
+            else
+                flash.now[:error] = @friend_request.errors.messages
+            end     
+        end  
     end
 
     def set_friend_request
-        @friend_request = FriendRequest.find(params[:id])
+        @friend_request = FriendRequest.where("user_id = ? AND friend_id = ?", current_user.id, params[:id]).first
     end
 end

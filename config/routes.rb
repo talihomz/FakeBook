@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'friends/destroy'
 
-  resources :friend_requests
+  resources :friend_requests, only: [:create, :update, :destroy]
   resources :posts
   resources :comments, only: [:create]
 
