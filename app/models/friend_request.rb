@@ -6,6 +6,8 @@ class FriendRequest < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User'
 
+  scope :saved, -> { where("id IS NOT NULL") }
+
   def accept
     user.friends << friend
     destroy

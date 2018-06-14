@@ -1,3 +1,5 @@
+require 'pp'
+
 class FriendRequestPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -34,8 +36,8 @@ class FriendRequestPolicy < ApplicationPolicy
   end
 
   def request_exists?
-    @user.friend_requests.any? do |request|
-      request.id == @friend_request.id
+    @user.friend_requests.saved.any? do |request|
+      request.friend == @friend_request.friend
     end
   end
 end
