@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     post
+    @comment = Comment.new(post_id: params[:id])
+    @comments = @post.comments.reverse
   end
 
   # GET /posts/new
@@ -17,50 +19,45 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        # format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        # format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to authenticated_root_path
+    else
+      flash.now[:error] = @post.errors.messages
+      render :new
     end
   end
 
   # PATCH/PUT /posts/1
   def update
     post
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        # format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    authorize @post
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /posts/1
   def destroy
     post
+    authorize @post
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      # format.json { head :no_content }
-    end
+    redirect_to authenticated_root_path, notice: 'Post was successfully destroyed.'
   end
 
   private
 
   def post
    @post ||= Post.find(params[:id])
+   @like = @post.likes.where("user_id = ?", current_user.id).first
+   return @post
   end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.fetch(:post, {})
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end

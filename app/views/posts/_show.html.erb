@@ -1,0 +1,53 @@
+<div class="post">
+  <div class="post-header">
+  <%= link_to user_path(current_user.id) do %>
+    <img class="avatar" src="http://via.placeholder.com/48x48" alt="avatar">
+    <h3><%= "#{post.user.firstname} #{post.user.lastname}" %></h3>
+    <!-- <% unless @hide_post_link %>
+      <%= link_to "See More", post_path(post.id), class: "pull-right" %>
+    <% end %> -->
+  <% end %>
+  </div>
+
+  <div class="post-body">
+    <p><%= post.content %></p>
+  </div>
+
+  <hr>
+  <div class="post-footer">
+    <div class="left-controls">
+      <div class="footer-icon">
+        <% if like.nil? %>
+        <%= link_to like_post_path(like: {post_id: post.id}), method: :post do %>
+          <i class="material-icons">thumb_up</i>
+        <% end %>
+        <% else %>
+        <%= link_to unlike_post_path(like.id), method: :delete do %>
+          <i class="material-icons liked">thumb_up</i>
+        <% end %>
+        <% end %>
+        <span><%= post.likes.length %></span>
+      </div>
+      <div class="footer-icon">
+        <%= link_to post_path(post.id), class: "pull-right" do %>
+          <i class="material-icons">mode_comment</i>
+        <% end %>
+        <span><%= post.comments.length %></span>
+      </div>
+    </div>
+    <div class="right-controls">
+      <% if policy(post).update? %>
+      <%= link_to edit_post_path(post.id) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+      <% end %>
+      <% if policy(post).destroy? %>
+      <%= link_to post_path(post.id), method: :delete do %>
+      <div class="footer-icon pull-right">
+        <i id="delete-post" class="material-icons">delete</i>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

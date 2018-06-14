@@ -34,19 +34,32 @@
 
   .post-footer {
     padding: 0 8px;
+    display: flex;
 
-    .footer-icon {
-      display: inline-block;
-      margin-right: 8px;
+    .left-controls {
+      flex: 1;
+      display: flex;
 
-      .material-icons {
-        font-size: 20px;
+      .footer-icon {
+        display: inline-block;
+        margin-right: 16px;
+        display: flex;
+
+        .material-icons {
+          font-size: 20px;
+        }
+
+        span {
+          font-size: 14px;
+          margin-left: 8px;
+        }
       }
+    }
 
-      span {
-        font-size: 14px;
-        margin-left: 8px;
-      }
+    #delete-post {
+      align-self: right;
+      margin-left: 12px;
+      color: red;
     }
   }
 }
@@ -57,10 +70,21 @@
   padding: 16px;
   margin-top: 16px;
 
+  .comment.new {
+    display: flex;
+    .form-control {
+      height: 100%;
+    }
+    
+  }
+
   .comment {
     margin-bottom: 16px;
+    padding: 4px 0;
     img {
       display: inline-block;
+      border-radius: 50%;
+      margin-right: 8px;
     }
     p {
       display: inline-block;
@@ -80,6 +104,12 @@
     }
     .form-inline {
       display: inline-block;
+      display: flex;
+      width: 100%;
+
+      .form-control {
+        flex: 1;
+      }
     }
   }
 }

@@ -1,16 +1,16 @@
 <div class="container post-container">
   <div class="post-user">
     <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-    <h3>Firstname Lastname</h3>
+    <h3><%= "#{current_user.firstname} #{current_user.lastname}" %></h3>
   </div>
 
-  <form class="form">
+  <%= form_for(@post, html: { class: 'form' }, url: posts_path) do |f| %>
     <div class="form-group">
-      <textarea placeholder="What's not on your mind?" class="form-control" rows="5" id="content"></textarea>
+      <textarea placeholder="What's not on your mind?" class="form-control" rows="5" id="content" name="post[content]"></textarea>
     </div>
     <div>
       <%= link_to 'Back', authenticated_root_path, class:"btn btn-info" %>
       <button type="submit" class="btn btn-primary pull-right">Post</button>
     </div>
-  </form>
+  <% end %>
 </div>
