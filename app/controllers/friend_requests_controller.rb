@@ -1,4 +1,4 @@
-class FriendRequestController < ApplicationController
+class FriendRequestsController < ApplicationController
     before_action :set_friend_request, except: [:index, :create]
 
     def create
@@ -6,9 +6,10 @@ class FriendRequestController < ApplicationController
         @friend_request = current_user.friend_requests.new(friend: friend)
 
         if @friend_request.save
-            render :show, status: :created, location: @friend_request
+            # render :show, status: :created, location: @friend_request
+            redirect_to find_friends_path
         else
-            render :json: @friend_request.errors, status: :unprocessable_entity
+            flash.now[:error] = @friend_request.errors
         end
     end
 

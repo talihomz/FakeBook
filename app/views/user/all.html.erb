@@ -7,9 +7,10 @@
             <img src="http://via.placeholder.com/250x250" alt="">
             <h3><%= "#{user.firstname} #{user.firstname}" %></h3>
           <% end %>
-          <%= link_to "Unfriend", user_path(user.id), class: "btn btn-primary" %>
-          <%= link_to "Send Request", user_path(user.id), class: "btn btn-primary" %>
-          <%= link_to "Accept Request", user_path(user.id), class: "btn btn-primary" %>
+
+          <%= link_to "Send Request", friend_requests_path(friend_id: user.id), method: :post, class: "btn btn-primary" %>
+          <%= link_to "Unfriend", user_path(user.id), class: "btn btn-danger" %>
+          <%= link_to "Accept Request", user_path(user.id), class: "btn btn-success" %>
         </div>
       </div>
     <% end %>
