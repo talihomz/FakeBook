@@ -18,8 +18,10 @@ class FriendRequestsController < ApplicationController
     end
 
     def update
+        @friend_request = FriendRequest.find(params[:id])
         @friend_request.accept
-        head :no_content
+        flash[:success] = "Friend request accepted!"
+        redirect_to friend_requests_path
     end
 
     def index
@@ -30,17 +32,17 @@ class FriendRequestsController < ApplicationController
     def destroy
         if @friend_request.nil?
             flash[:error] = "Cannot delete NULL friend request."
-            redirect_to find_friends_path       
+            redirect_to find_friends_path
         else
             authorize @friend_request
 
             if @friend_request.destroy
-                flash[:success] = "Cancelled successfully!"                
-                redirect_to find_friends_path                 
+                flash[:success] = "Cancelled successfully!"
+                redirect_to find_friends_path
             else
                 flash.now[:error] = @friend_request.errors.messages
-            end     
-        end  
+            end
+        end
     end
 
     def set_friend_request

@@ -7,7 +7,9 @@
         <span class="time"><%= time_ago_in_words(request.created_at) << " ago" %></span>
       </div>
       <div class="request-buttons">
-        <button class="btn btn-success">Accept</button>
+        <%= link_to friend_request_path(request.id), method: :patch do %>
+          <button class="btn btn-success">Accept</button>
+        <% end %>
         <button class="btn btn-danger">Decline</button>
       </div>
     </div>
