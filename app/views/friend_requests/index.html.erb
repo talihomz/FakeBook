@@ -1,9 +1,15 @@
 <div class="container notification-container">
   <% @incoming.each do |request| %>
     <div class="well well-sm">
-      <img src="images/ic_account_box_black_24dp_2x.png" alt="">
-      <p><%= request.user.firstname %> has sent a friend request.</p>
-      <span class="time">09:45 pm</span>
+      <img src="http://via.placeholder.com/48x48" alt="">
+      <div class="request-info">
+        <p><%= request.user.firstname %> has sent a friend request.</p>
+        <span class="time"><%= time_ago_in_words(request.created_at) << " ago" %></span>
+      </div>
+      <div class="request-buttons">
+        <button class="btn btn-success">Accept</button>
+        <button class="btn btn-danger">Decline</button>
+      </div>
     </div>
   <% end %>
 </div>

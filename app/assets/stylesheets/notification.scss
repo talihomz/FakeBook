@@ -2,15 +2,27 @@
   padding: 16px 8px;
 
   .well {
-    p {
-      display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
     }
 
-    .time {
-      float: right;
-      margin-top: 8px;
-      color: $lightgrey;
+    .request-info {
+      flex: 1;
+      p {
+        font-size: 17px;
+        margin: 0;
+      }
+
+      .time {
+        margin-top: 8px;
+        color: $lightgrey;
+      }
     }
   }
 }
-
