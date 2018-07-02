@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'friends/index'
-
-  get 'friends/destroy'
 
   resources :friend_requests, only: [:create, :update, :destroy]
   resources :posts
@@ -16,6 +13,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'user#show', as: :user
   get '/users/:id/edit', to: 'user#edit', as: :edit_user
   get '/users/:id/friends', to: 'friends#index', as: :friends
+  delete '/users/:id/friends', to: 'friends#destroy', as: :remove_friend
 
   post '/posts/like', to: 'likes#create', as: :like_post
   delete '/posts/:id/unlike', to: 'likes#destroy', as: :unlike_post
