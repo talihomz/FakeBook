@@ -5,7 +5,7 @@
         <div class="card">
           <%= link_to user_path(user.id) do %>
             <img src="http://via.placeholder.com/250x250" alt="">
-            <h3><%= "#{user.firstname} #{user.firstname}" %></h3>
+            <h3><%= "#{user.firstname} #{user.lastname}" %></h3>
           <% end %>
 
           <% friend_request = get_friend_request(user.id) %>
@@ -17,7 +17,6 @@
           <% if policy(friend_request).destroy? %>
           <%= link_to "Cancel Request", friend_request_path(id: user.id), method: :delete, class: "btn btn-danger" %>
           <% end %>
-          <%= link_to "Accept Request", user_path(user.id), class: "btn btn-success" %>
         </div>
       </div>
     <% end %>
