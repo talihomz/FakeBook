@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/users/all', to: 'user#all', as: :find_friends
   get '/users/:id', to: 'user#show', as: :user
   get '/users/:id/edit', to: 'user#edit', as: :edit_user
+  get '/users/:id/friends', to: 'friends#index', as: :friends
 
   post '/posts/like', to: 'likes#create', as: :like_post
   delete '/posts/:id/unlike', to: 'likes#destroy', as: :unlike_post

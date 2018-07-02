@@ -20,7 +20,9 @@
           <div class="panel-body"><%= @user.email %></div>
         </div>
 
-        <button class="btn btn-primary">See Friends</button>
+        <%= link_to friends_path(@user.id) do %>
+          <button class="btn btn-primary">See Friends</button>
+        <% end %>
       </div>
       <div class="col-md-9 posts-col">
         <%= link_to "Create a post", new_post_path, class: 'btn btn-success btn-lg' %>

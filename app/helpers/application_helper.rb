@@ -28,5 +28,9 @@ module ApplicationHelper
 
     result
   end
-  
+
+  def friend_requests_count
+    @incoming = FriendRequest.where(friend: current_user).length
+  end
+
 end

@@ -1,0 +1,20 @@
+<div class="container friends-container">
+  <div class="row">
+    <% @friends.each do |user| %>
+      <div class="col-md-3">
+        <div class="card">
+          <%= link_to user_path(user.id) do %>
+            <img src="http://via.placeholder.com/250x250" alt="">
+            <h3><%= "#{user.firstname} #{user.lastname}" %></h3>
+          <% end %>
+
+          <% friend_request = get_friend_request(user.id) %>
+
+          <% if policy(friend_request).destroy? %>
+          <%= link_to "Remove Friend", friend_request_path(id: user.id), method: :delete, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
