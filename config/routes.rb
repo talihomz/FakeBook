@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   post '/posts/like', to: 'likes#create', as: :like_post
   delete '/posts/:id/unlike', to: 'likes#destroy', as: :unlike_post
 
-  get '/notifications/', to: 'notification#index', as: :notifications
+  get '/friend_requests/', to: 'friend_requests#index', as: :requests
+
   get '/privacy_policy', to: 'static_pages#privacy', as: :privacy
 
   match "*path", to: "application#render_404", via: :all
